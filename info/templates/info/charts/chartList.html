@@ -1,0 +1,20 @@
+{% extends 'info/base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+</br>
+
+
+    <h1>Choose one of them :</h1>
+
+                <a class="btn btn-primary btn-sm" href="{% url 'info:DonutChart' %}" role="button">DonutChart</a>
+                <a class="btn btn-primary btn-sm" href="{% url 'info:lineChart' %}" role="button">lineChart</a>
+                <a class="btn btn-primary btn-sm" href="{% url 'info:lineChartPercentage' %}" role="button">lineChartPercentage</a>
+                <a class="btn btn-primary btn-sm" href="{% url 'info:radarChart' %}" role="button">radarChart</a>
+
+
+{% endblock %}

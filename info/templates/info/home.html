@@ -7,28 +7,6 @@
 
 {% block content %}
 </br>
-<div class="row row-cols-2 row-cols-md-5 g-4">
-    {% for user in users %}
 
-          <div class="col">
-            <div class="card">
-
-                <img src="{% if user.Avatar %}{{user.Avatar.url}}{% else %}{% static 'panel/m.jfif' %}{% endif %}" >
-
-              <div class="card-body">
-                <span class="badge rounded-pill text-bg-primary">{{user.name}}</span>
-                <span class="badge rounded-pill text-bg-dark">{{user.username}}</span>
-                <span class="badge rounded-pill text-bg-danger">{{user.reason}}</span>
-
-
-
-              </div>
-            </div>
-          </div>
-
-
-    {% endfor %}
-
-</div>
 
 {% endblock %}

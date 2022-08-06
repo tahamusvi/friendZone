@@ -1,0 +1,99 @@
+{% extends 'info/base.html' %}
+{% load static %}
+
+{% block css %}
+<script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-radar.min.js"></script>
+<style type="text/css">
+      html, body, #container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+</br>
+
+<div id="container"></div>
+
+<script>
+  anychart.onDocumentReady(function () {
+    // our data from bulbapedia
+      var data1 = [
+        {x: "university", value: "{{university}}"},
+        {x: "highschool", value: "{{highschool}}"},
+        {x: "Friend", value: "{{Friend}}"},
+        {x: "game", value: "{{game}}"},
+        {x: "school", value: "{{school}}"},
+        {x: "other", value: "{{other}}"},
+        {x: "family", value: "{{family}}"},
+        {x: "instagram", value: "{{instagram}}"},
+      ];
+
+      var data2 = [
+        {x: "university", value: "{{university}}+3"},
+        {x: "highschool", value: "{{highschool}}+3"},
+        {x: "Friend", value: "{{Friend}}+3"},
+        {x: "game", value: "{{game}}+3"},
+        {x: "school", value: "{{school}}+3"},
+        {x: "other", value: "{{other}}+3"},
+        {x: "family", value: "{{family}}+3"},
+        {x: "instagram", value: "{{instagram}}+3"},
+      ];
+
+      var data3 = [
+        {x: "university", value: "{{university}}+10"},
+        {x: "highschool", value: "{{highschool}}+10"},
+        {x: "Friend", value: "{{Friend}}+10"},
+        {x: "game", value: "{{game}}+10"},
+        {x: "school", value: "{{school}}+10"},
+        {x: "other", value: "{{other}}+10"},
+        {x: "family", value: "{{family}}+10"},
+        {x: "instagram", value: "{{instagram}}+10"},
+      ];
+
+      // create radar chart
+      var chart = anychart.radar();
+      // set chart yScale settings
+      chart.yScale()
+        .minimum(40)
+        .maximum(80)
+        .ticks({'interval':1});
+
+
+        // color alternating cells
+        chart.yGrid().palette(["gray 0.1", "gray 0.2"]);
+
+
+      // create first series
+      chart.line(data1)
+      // create second series
+
+      // create first series
+     chart.area(data1).name('Charmander').markers(true).fill("#5BC0EB", 0.3).stroke("#5BC0EB")
+
+
+      // set chart title
+      chart.title("My friend Reason madar Chart");
+
+
+      // set legend
+        chart.legend(true);
+
+      // set container id for the chart
+      chart.container('container');
+      // initiate chart drawing
+      chart.draw();
+
+    });
+
+</script>
+
+{% endblock %}
