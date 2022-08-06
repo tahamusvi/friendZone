@@ -1,7 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, AbstractUser
 from .managers import *
+# ----------------------------------------------------------------------------------------------------------------------------
+class City(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True)
 
+
+    class Meta:
+        verbose_name = "City"
+        verbose_name_plural = "Cities"
+
+
+    def __str__(self):
+        return str(self.name)
 # ----------------------------------------------------------------------------------------------------------------------------
 class User(AbstractBaseUser):
     status_reason = (
@@ -24,6 +35,7 @@ class User(AbstractBaseUser):
     code = models.IntegerField(blank=True,null=True)
 
     reason = models.CharField(max_length=1,choices = status_reason)
+    city = models.ForeignKey(City,on_delete=models.CASCADE,related_name="user")
 
 
 

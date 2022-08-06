@@ -1,0 +1,21 @@
+{% extends 'info/base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+</br>
+
+
+    <h1>Choose one of them :</h1>
+
+                <a class="btn btn-primary btn-sm" href="{% url 'info:setpage' %}" role="button">Reason</a>
+                <a class="btn btn-primary btn-sm" href="{% url 'info:setCityPage' %}" role="button">City</a>
+
+
+
+
+
+{% endblock %}

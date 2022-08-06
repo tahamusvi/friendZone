@@ -1,0 +1,39 @@
+{% extends 'info/base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+</br>
+<h1>amounts : {{amount}}</h1>
+<div class="row row-cols-2 row-cols-md-5 g-4">
+    {% for user in users %}
+
+          <div class="col">
+            <div class="card">
+
+                <img src="{% if user.Avatar %}{{user.Avatar.url}}{% else %}{% static 'panel/m.jfif' %}{% endif %}" >
+
+              <div class="card-body">
+                <span class="badge rounded-pill text-bg-primary">{{user.name}}</span>
+
+
+                {% for city in cities %}
+
+                  <a class="btn btn-primary btn-sm" href="{% url 'info:setCity' user.username city %}" role="button">{{city}}</a>
+
+                {% endfor %}
+
+
+              </div>
+            </div>
+          </div>
+
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

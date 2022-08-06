@@ -6,9 +6,17 @@ app_name = "info"
 
 urlpatterns = [
     path('', home,name="home"),
+
+    path('sets/', setsPage,name="setsPage"),
+
+
     path('setReason/<slug:username>/<slug:reason>/',setReason,name="set"),
     path('setReason/',setReasonPage,name="setpage"),
     path('setReason/<slug:reason>/',setReasonlist,name="setlist"),
+
+    path('setCity/<slug:username>/<slug:cityName>/',setCity,name="setCity"),
+    path('setCity/',setCityPage,name="setCityPage"),
+    path('setCity/<slug:cityName>/',setCitylist,name="setCitylist"),
 
 
     path('charts/', charts,name="charts"),
@@ -20,5 +28,6 @@ urlpatterns = [
 
     path('orders/',ordersPage,name="ordersPage"),
     path('orders/orderingByReason/', orderingByReason,name="orderingByReason"),
+    path('orders/orderingByCity/', orderingByCity,name="orderingByCity"),
 
 ]

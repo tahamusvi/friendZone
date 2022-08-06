@@ -1,0 +1,21 @@
+{% extends 'info/base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+</br>
+
+
+    <h1>Choose one of them :</h1>
+
+                {% for city in cities %}
+
+                  <a class="btn btn-primary btn-sm" href="{% url 'info:setCitylist' city %}" role="button">{{city}}</a>
+
+                {% endfor %}
+
+
+{% endblock %}

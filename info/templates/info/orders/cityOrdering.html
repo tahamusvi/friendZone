@@ -1,0 +1,49 @@
+{% extends 'info/base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+</br>
+
+                <table class="table table-dark table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">title</th>
+                      <th scope="col">amount</th>
+                      <th scope="col">amountPercentage</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+
+                    {% for key,value in data.items %}
+
+                    <tr>
+                      <th scope="row">{{forloop.counter}}</th>
+                      <td>{{key}}</td>
+                      {% for number in value %}
+                      <td>{{number}}</td>
+                      {% endfor %}
+                    </tr>
+
+                    {% endfor %}
+
+                    <tr>
+                      <th scope="row">{{9}}</th>
+                      <td>all</td>
+
+                      <td>{{all}}</td>
+                      <td>100</td>
+
+                    </tr>
+
+                  </tbody>
+                </table>
+
+
+
+{% endblock %}
