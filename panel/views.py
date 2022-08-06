@@ -16,7 +16,9 @@ def createusers(request):
 
     return render(request,'panel/AdminHome.html')
 
-
+def addinfo(request):
+    users = User.objects.all()
+    return render(request,'panel/add_info.html',{'users' : users})
 
 
 def home(request):

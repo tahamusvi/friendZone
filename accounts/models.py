@@ -4,6 +4,17 @@ from .managers import *
 
 # ----------------------------------------------------------------------------------------------------------------------------
 class User(AbstractBaseUser):
+    status_reason = (
+        ('u' , "university"),
+        ('h', "highschool"),
+        ('a' , "Friend"),
+        ('g' , "game"),
+        ('s' , "school"),
+        ('o' , "other"),
+        ('f' , "family"),
+        ('i' , "instagram"),
+    )
+
     username = models.CharField(unique=True, max_length=100)
     name = models.CharField(max_length=100, null=True, blank=True)
     is_admin = models.BooleanField(default=False)
@@ -11,6 +22,9 @@ class User(AbstractBaseUser):
     Avatar = models.ImageField(upload_to="images/Avatar",blank=True,null=True)
 
     code = models.IntegerField(blank=True,null=True)
+
+    reason = models.CharField(max_length=1,choices = status_reason)
+
 
 
 
