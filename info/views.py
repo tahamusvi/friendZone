@@ -122,24 +122,29 @@ def orderingByCity(request):
     all = User.objects.all().count()
     factor = 100 / User.objects.all().count()
 
+    cities = sorted(City.objects.all(), key=lambda a: -a.amount())
+
+
     data = {}
-    for city in City.objects.all():
-        data[city.name] = [city.user.all().count(),city.user.all().count()*factor]
+    for city in cities:
+        data[city.name] = [city.amount(),city.amount()*factor]
 
     return render(request,'info/orders/cityOrdering.html',{"all" : all,"factor": factor,"data" : data
     })
-#---------------------------------------------------------------------------------------
+#***************************************************************************************************
 def lineChartPercentageCity(request):
     factor = 100 / User.objects.all().count()
     data = {}
     index = 0
-    for city in City.objects.all():
-        data[city.name] = city.user.all().count()
+    cities = City.objects.all()                                                 #option1
+    cities_orderd = sorted(City.objects.all(), key=lambda a: a.amount())        #option2
+    for city in cities_orderd:
+        data[city.name] = city.user.all().count()*factor
 
 
 
     return render(request,'info/charts/chartOnData.html',{"data" : data})
-#---------------------------------------------------------------------------------------
+#***************************************************************************************************
 def setCitylist(request,cityName):
     city = City.objects.get(name = cityName)
     users = User.objects.filter(city = city)

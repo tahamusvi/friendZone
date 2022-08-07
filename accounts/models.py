@@ -11,6 +11,9 @@ class City(models.Model):
         verbose_name_plural = "Cities"
 
 
+    def amount(self):
+        return self.user.all().count()
+
     def __str__(self):
         return str(self.name)
 # ----------------------------------------------------------------------------------------------------------------------------
