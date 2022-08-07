@@ -23,6 +23,7 @@ urlpatterns = [
     path('charts/DonutChart/', DonutChart,name="DonutChart"),
     path('charts/lineChart/', lineChart,name="lineChart"),
     path('charts/lineChart/Percentage/', lineChartPercentage,name="lineChartPercentage"),
+    path('charts/lineChartCity/Percentage/', lineChartPercentageCity,name="lineChartPercentageCity"),
     path('charts/radarChart/', radarChart,name="radarChart"),
 
 
