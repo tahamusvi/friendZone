@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'panel',
     'accounts',
     'info',
+    'map',
 ]
 
 MIDDLEWARE = [

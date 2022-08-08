@@ -4,6 +4,9 @@ from .managers import *
 # ----------------------------------------------------------------------------------------------------------------------------
 class City(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
+    north = models.DecimalField(max_digits=5, decimal_places=3)
+    east = models.DecimalField(max_digits=5, decimal_places=3)
+
 
 
     class Meta:
