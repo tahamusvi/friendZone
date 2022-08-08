@@ -104,9 +104,13 @@ def orderingByReason(request):
     other = User.objects.filter(reason = 'o').count()
     family = User.objects.filter(reason = 'f').count()
     instagram = User.objects.filter(reason = 'i').count()
-    return render(request,'info/orders/reasonOrdering.html',{"all" : all,"factor": factor,"data" : {"university" : [university,university*factor],"highschool" : [highschool,highschool*factor],
+
+
+    reason_data =  {"university" : [university,university*factor],"highschool" : [highschool,highschool*factor],
     "Friend" : [Friend,Friend*factor],"game" : [game,game*factor],"school" : [school,school*factor],"other" : [other,other*factor],
-    "family" : [family,family*factor],"instagram" : [instagram,instagram*factor]},
+    "family" : [family,family*factor],"instagram" : [instagram,instagram*factor]}
+
+    return render(request,'info/orders/reasonOrdering.html',{"all" : all,"factor": factor,"data" :reason_data,
     })
 #---------------------------------------------------------------------------------------
 def setCity(request,username,cityName):
@@ -137,7 +141,8 @@ def lineChartPercentageCity(request):
     data = {}
     index = 0
     cities = City.objects.all()                                                 #option1
-    cities_orderd = sorted(City.objects.all(), key=lambda a: a.amount())        #option2
+    cities_orderd = sorted(City.objects.all(), key=lambda a: -a.amount())        #option2
+    cities2 =  sorted(City.objects.all(), key=lambda a: a.name)                 #option3
     for city in cities_orderd:
         data[city.name] = city.user.all().count()*factor
 
