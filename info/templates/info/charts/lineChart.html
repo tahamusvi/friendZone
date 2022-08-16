@@ -51,9 +51,14 @@
   		],
   		datasets: [
   		{
-  			label: "work load",
+  			label: "Gray",
   			data: ["{{school}}", "{{highschool}}", "{{Friend}}", "{{game}}", "{{university}}", "{{other}}", "{{family}}","{{instagram}}"],
-  			backgroundColor: "rgba(0,0,255,0.5)",
+  			backgroundColor: "rgba(23,25,25,0.5)",
+  		},
+			{
+  			label: "blue",
+  			data: ["{{school}}", "{{highschool}}", "{{Friend}}", "{{game}}", "{{university}}", "{{other}}", "{{family}}","{{instagram}}"],
+  			backgroundColor: "rgba(123,205,345,0.5)",
   		},
   		// {
   		// 	label: "free hours",
@@ -64,5 +69,5 @@
   	},
   	});
 	</script>
-
+<a class="btn btn-dark btn-sm" href="{% url 'info:charts' %}" role="button">charts list</a>
 {% endblock %}
