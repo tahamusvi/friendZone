@@ -13,6 +13,13 @@ class City(models.Model):
         verbose_name = "City"
         verbose_name_plural = "Cities"
 
+    def averageUserRate(self):
+        total = sum(item.Rating for item in self.user.all())
+        return total / self.amount()
+
+    def totalUserRate(self):
+        total = sum(item.Rating for item in self.user.all())
+        return total
 
     def amount(self):
         return self.user.all().count()
@@ -42,6 +49,8 @@ class User(AbstractBaseUser):
 
     reason = models.CharField(max_length=1,choices = status_reason)
     city = models.ForeignKey(City,on_delete=models.CASCADE,related_name="user")
+    Rating = models.IntegerField(default=1)
+
 
 
 

@@ -1,0 +1,51 @@
+{% extends 'info/base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+</br>
+
+                <table class="table table-dark table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">title</th>
+                      <th scope="col">average</th>
+                      <th scope="col">total Rate</th>
+                      <th scope="col">amount</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+
+                    {% for key,value in data.items %}
+
+                    <tr>
+                      <th scope="row">{{forloop.counter}}</th>
+                      <td>{{key}}</td>
+                      {% for number in value %}
+                      <td>{{number}}</td>
+                      {% endfor %}
+                    </tr>
+
+                    {% endfor %}
+
+                    <tr>
+                      <th scope="row">{{24}}</th>
+                      <td>all</td>
+
+                      <td>{{RateAll}}</td>
+                      <td>{{RateAllperPerson}}</td>
+                      <td>{{all}}</td>
+
+                    </tr>
+
+                  </tbody>
+                </table>
+
+
+
+{% endblock %}

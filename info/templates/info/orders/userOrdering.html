@@ -1,0 +1,43 @@
+{% extends 'info/base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+</br>
+
+                <table class="table table-dark table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">name</th>
+                      <th scope="col">city</th>
+                      <th scope="col">Rate</th>
+                      <th scope="col">Reason</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+
+                    {% for user in all %}
+
+                    <tr>
+                      <th scope="row">{{forloop.counter}}</th>
+                      <td>{{user.name}}</td>
+
+                      <td>{{user.city}}</td>
+                      <td>{{user.Rating}}</td>
+                      <td>{{user.reason}}</td>
+                    </tr>
+
+                    {% endfor %}
+
+
+                  </tbody>
+                </table>
+
+
+
+{% endblock %}

@@ -167,3 +167,51 @@ def setCityPage(request):
 #---------------------------------------------------------------------------------------
 def setsPage(request):
     return render(request,'info/sets/setsPage.html')
+#---------------------------------------------------------------------------------------
+def setRatePage(request):
+    return render(request,'info/sets/setRate.html')
+#---------------------------------------------------------------------------------------
+def setRateByCityPage(request):
+    cities = City.objects.all()
+    return render(request,'info/sets/rate/setRateByCityPage.html',{"cities" : cities})
+#---------------------------------------------------------------------------------------
+def setRateByCityList(request,cityName):
+    city = City.objects.get(name = cityName)
+    users = User.objects.filter(city = city)
+    amount = 0
+    for user in users:
+        amount += 1
+
+    cities = City.objects.all()
+    return render(request,'info/sets/rate/setRateByCity.html',{"cities" : cities,'users' : users,'amount':amount,'city':cityName})
+#---------------------------------------------------------------------------------------
+def setRate(request,Rate,username):
+    user = User.objects.get(username=username)
+    user.Rating = Rate
+    user.save()
+
+    return setRateByCityList(request,user.city.name)
+#---------------------------------------------------------------------------------------
+def orderingByRate(request):
+    all = User.objects.all().count()
+    RateAll = sum(item.totalUserRate() for item in City.objects.all())
+    RateAllperPerson = RateAll / all
+
+    factor = 100 / User.objects.all().count()
+
+    cities = sorted(City.objects.all(), key=lambda a: -a.totalUserRate())
+
+
+    data = {}
+    for city in cities:
+        data[city.name] = [city.averageUserRate(),city.totalUserRate(),city.amount()]
+
+    return render(request,'info/orders/rateOrdering.html',{"all" : all,"RateAll":RateAll,"RateAllperPerson":RateAllperPerson,"factor": factor,"data" : data
+    })
+#---------------------------------------------------------------------------------------
+def orderingByUser(request):
+    all = sorted(User.objects.all(), key=lambda a: -a.Rating)
+
+
+    return render(request,'info/orders/userOrdering.html',{"all" : all
+    })

@@ -18,6 +18,11 @@ urlpatterns = [
     path('setCity/',setCityPage,name="setCityPage"),
     path('setCity/<slug:cityName>/',setCitylist,name="setCitylist"),
 
+    path('setRate/',setRatePage,name="setRatePage"),
+    path('setRate/<slug:username>/<int:Rate>',setRate,name="setRate"),
+    path('setRateByCityPage/',setRateByCityPage,name="setRateByCityPage"),
+    path('setRateByCityList/<slug:cityName>/',setRateByCityList,name="setRateByCityList"),
+    # path('setRate/<slug:username>/<slug:cityName>/',setCity,name="setCity"),
 
     path('charts/', charts,name="charts"),
     path('charts/DonutChart/', DonutChart,name="DonutChart"),
@@ -30,5 +35,6 @@ urlpatterns = [
     path('orders/',ordersPage,name="ordersPage"),
     path('orders/orderingByReason/', orderingByReason,name="orderingByReason"),
     path('orders/orderingByCity/', orderingByCity,name="orderingByCity"),
-
+    path('orders/orderingByRate/', orderingByRate,name="orderingByRate"),
+    path('orders/userOrdering/', orderingByUser,name="userOrdering"),
 ]
