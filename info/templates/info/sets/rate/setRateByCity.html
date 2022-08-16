@@ -18,15 +18,15 @@
                 <img src="{% if user.Avatar %}{{user.Avatar.url}}{% else %}{% static 'panel/m.jfif' %}{% endif %}" >
 
               <div class="card-body">
-                <span class="badge rounded-pill text-bg-primary">{{user.name}}</span>
+                <span class="badge rounded-pill text-bg-danger">{{user.name}}</span>
 
 
 
-                  <a class="btn btn-primary btn-sm" href="{% url 'info:setRate' user.username 1 %}" role="button">1</a>
-                  <a class="btn btn-primary btn-sm" href="{% url 'info:setRate' user.username 2 %}" role="button">2</a>
-                  <a class="btn btn-primary btn-sm" href="{% url 'info:setRate' user.username 3 %}" role="button">3</a>
-                  <a class="btn btn-primary btn-sm" href="{% url 'info:setRate' user.username 4 %}" role="button">4</a>
-                  <a class="btn btn-primary btn-sm" href="{% url 'info:setRate' user.username 5 %}" role="button">5</a>
+                  <a class="btn btn-dark btn-sm" href="{% url 'info:setRate' user.username 1 %}" role="button">1</a>
+                  <a class="btn btn-dark btn-sm" href="{% url 'info:setRate' user.username 2 %}" role="button">2</a>
+                  <a class="btn btn-dark btn-sm" href="{% url 'info:setRate' user.username 3 %}" role="button">3</a>
+                  <a class="btn btn-dark btn-sm" href="{% url 'info:setRate' user.username 4 %}" role="button">4</a>
+                  <a class="btn btn-dark btn-sm" href="{% url 'info:setRate' user.username 5 %}" role="button">5</a>
 
 
 
