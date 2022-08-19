@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, AbstractUser
 from .managers import *
 # ----------------------------------------------------------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------------------------------------------------------
 class City(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     north = models.DecimalField(max_digits=5, decimal_places=3)
@@ -50,6 +52,8 @@ class User(AbstractBaseUser):
     reason = models.CharField(max_length=1,choices = status_reason)
     city = models.ForeignKey(City,on_delete=models.CASCADE,related_name="user")
     Rating = models.IntegerField(default=1)
+
+    Friends = models.ManyToManyField("User")
 
 
 
