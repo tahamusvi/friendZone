@@ -1,0 +1,20 @@
+{% extends 'info/base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+</br>
+
+<form class="" action="" method="post">{% csrf_token %}
+  {{form}}</br>
+  <input type="submit" name="" value="login" class="btn btn-primary">
+
+</form></br>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="{% url 'accounts:signUp' %}">New around here? Sign up</a>
+  <a class="dropdown-item" href="#">Forgot password?</a>
+</div>
+{% endblock %}
