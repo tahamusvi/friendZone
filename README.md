@@ -3,6 +3,8 @@
 
 ### brief explanation
 
+
+
 ###### this django app categorizes users based on location and reason for familiarity and show datas on charts like donut or lineChart and tabels.
 
 ![alt text](https://github.com/TahaM8000/images/blob/main/home.PNG?raw=true)
@@ -28,7 +30,16 @@
 
 
 ![alt text](https://github.com/TahaM8000/images/blob/main/chart.PNG?raw=true)
+### Tools
 
-![alt text](https://github.com/TahaM8000/images/blob/main/charts.PNG?raw=true)
+* python
+* django
+* folium
+* bootstrap
+* javaScripts
+
+
 
 ![alt text](https://github.com/TahaM8000/images/blob/main/order.PNG?raw=true)
+
+![alt text](https://github.com/TahaM8000/images/blob/main/charts.PNG?raw=true)
