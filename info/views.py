@@ -6,6 +6,9 @@ def home(request):
     users = User.objects.all()
     return render(request,'info/homeSecond.html',{'users' : users})
 #---------------------------------------------------------------------------------------
+def donut(request):
+    return render(request,'info/charts/donut.html')
+#---------------------------------------------------------------------------------------
 def setReason(request,username,reason):
     user = User.objects.get(username = username)
     user.reason = reason

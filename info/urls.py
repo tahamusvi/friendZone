@@ -8,7 +8,7 @@ urlpatterns = [
     path('', home,name="home"),
 
     path('sets/', setsPage,name="setsPage"),
-
+    path('donut/', donut,name="donut"),
 
     path('setReason/<slug:username>/<slug:reason>/',setReason,name="set"),
     path('setReason/',setReasonPage,name="setpage"),

@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, AbstractUser
 from .managers import *
 # ----------------------------------------------------------------------------------------------------------------------------
-
-# ----------------------------------------------------------------------------------------------------------------------------
 class City(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     north = models.DecimalField(max_digits=5, decimal_places=3)
