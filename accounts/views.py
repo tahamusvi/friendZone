@@ -44,3 +44,9 @@ def signUp(request):
     else:
         form = UserRegistrationForm
     return render(request,'accounts/signUp.html',{'form':form})
+#------------------------------------------------------------------------------------------------
+def makeFriends(request,us1,us2):
+    user1 = User.objects.get(username = us1)
+    user2 = User.objects.get(username = us2)
+    user1.makeFriends(user2)
+    

@@ -18,6 +18,9 @@ urlpatterns = [
     path('setCity/',setCityPage,name="setCityPage"),
     path('setCity/<slug:cityName>/',setCitylist,name="setCitylist"),
 
+    # path('setFriendPage/',setFriendPage,name="setFriendPage"),
+    # path('setFriendByCityPage/',setFriendByCityPage,name="setFriendByCityPage"),
+
     path('setRate/',setRatePage,name="setRatePage"),
     path('setRate/<slug:username>/<int:Rate>',setRate,name="setRate"),
     path('setRateByCityPage/',setRateByCityPage,name="setRateByCityPage"),

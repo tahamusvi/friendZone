@@ -65,6 +65,15 @@ class User(AbstractBaseUser):
     def __str__(self):
         return str(self.username) + " - " + str(self.name)
 
+    def makeFriends(self,user):
+        try:
+            self.Friend.add(user).save()
+            user.Friend.add(self).save()
+            return True
+        except :
+            return False
+
+
     def full_name(self):
         return str(self.name)
 

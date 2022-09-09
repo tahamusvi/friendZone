@@ -218,3 +218,25 @@ def orderingByUser(request):
 
     return render(request,'info/orders/userOrdering.html',{"all" : all
     })
+#---------------------------------------------------------------------------------------
+# def setFriendPage(request):
+#     return render(request,'info/sets/setFriendPage.html')
+# #---------------------------------------------------------------------------------------
+# def setFriendByCityPage(request):
+#     cities = City.objects.all()
+#     return render(request,'info/sets/friend/setFriendByCityPage.html',{"cities" : cities})
+# #---------------------------------------------------------------------------------------
+# def setFriendByCity(request,cityName):
+#     city = City.objects.get(name = cityName)
+#     users = User.objects.filter(city = city)
+#     amount = 0
+#     for user in users:
+#         amount += 1
+#
+#     cities = City.objects.all()
+#     return render(request,'info/sets/rate/setFriendByCity.html',{"cities" : cities,'users' : users,'amount':amount,'city':cityName})
+#---------------------------------------------------------------------------------------
+# def setFriend(request,username):
+#     user
+#
+#     return setFriendByCity(request,user.city.name)
