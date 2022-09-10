@@ -16,7 +16,7 @@
                 <img src="{% if user.Avatar %}{{user.Avatar.url}}{% else %}{% static 'm.jfif' %}{% endif %}" >
 
               <div class="card-body">
-                <span class="badge rounded-pill text-bg-dark">{{user.name}}</span>
+                <span class="badge rounded-pill text-bg-dark"><a href="{% url 'info:profile' user.username %}" style="text-decoration:none;Color:white">{{user.name}}</a></span>
                 <span class="badge rounded-pill text-bg-dark">{{user.username}}</span>
                 <span class="badge rounded-pill text-bg-danger">{{user.reason}}</span>
 

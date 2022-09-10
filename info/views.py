@@ -6,6 +6,10 @@ def home(request):
     users = User.objects.all()
     return render(request,'info/homeSecond.html',{'users' : users})
 #---------------------------------------------------------------------------------------
+def profile(request,username):
+    user = User.objects.get(username = username)
+    return render(request,'info/profile.html',{'user' : user})
+#---------------------------------------------------------------------------------------
 def donut(request):
     return render(request,'info/charts/donut.html')
 #---------------------------------------------------------------------------------------

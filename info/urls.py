@@ -6,6 +6,7 @@ app_name = "info"
 
 urlpatterns = [
     path('', home,name="home"),
+    path('profile/<slug:username>/',profile,name="profile"),
 
     path('sets/', setsPage,name="setsPage"),
     path('donut/', donut,name="donut"),
