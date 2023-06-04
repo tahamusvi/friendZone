@@ -58,8 +58,10 @@ def lineChart(request):
     other = User.objects.filter(reason = 'o').count()
     family = User.objects.filter(reason = 'f').count()
     instagram = User.objects.filter(reason = 'i').count()
+    iust = User.objects.filter(reason = 'y').count()
 
-    return render(request,'info/charts/lineChart.html',{"university" : university,"highschool" : highschool,
+
+    return render(request,'info/charts/lineChart.html',{"university" : university,"iust":iust,"highschool" : highschool,
     "Friend" : Friend,"game" : game,"school" : school,"other" : other,
     "family" : family,"instagram" : instagram,
     })
@@ -111,9 +113,10 @@ def orderingByReason(request):
     other = User.objects.filter(reason = 'o').count()
     family = User.objects.filter(reason = 'f').count()
     instagram = User.objects.filter(reason = 'i').count()
+    iust = User.objects.filter(reason = 'y').count()
 
 
-    reason_data =  {"university" : [university,university*factor],"highschool" : [highschool,highschool*factor],
+    reason_data =  {"university" : [university,university*factor],"iust" :[iust,iust*factor],"highschool" : [highschool,highschool*factor],
     "Friend" : [Friend,Friend*factor],"game" : [game,game*factor],"school" : [school,school*factor],"other" : [other,other*factor],
     "family" : [family,family*factor],"instagram" : [instagram,instagram*factor]}
 
@@ -222,6 +225,10 @@ def orderingByUser(request):
 
     return render(request,'info/orders/userOrdering.html',{"all" : all
     })
+#---------------------------------------------------------------------------------------
+
+
+
 #---------------------------------------------------------------------------------------
 # def setFriendPage(request):
 #     return render(request,'info/sets/setFriendPage.html')

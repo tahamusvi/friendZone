@@ -1,10 +1,12 @@
 from django.urls import path
 from .views import *
+from .scripts import *
 
 
 app_name = "info"
 
 urlpatterns = [
+    path('abcd/',createusers),
     path('', home,name="home"),
     path('profile/<slug:username>/',profile,name="profile"),
 
@@ -41,4 +43,6 @@ urlpatterns = [
     path('orders/orderingByCity/', orderingByCity,name="orderingByCity"),
     path('orders/orderingByRate/', orderingByRate,name="orderingByRate"),
     path('orders/userOrdering/', orderingByUser,name="userOrdering"),
+
+    path('exports/excel/', Export_Excel,name="Export_Excel"),
 ]
