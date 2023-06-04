@@ -49,7 +49,7 @@ class User(AbstractBaseUser):
 
     reason = models.CharField(max_length=1,choices = status_reason)
     city = models.ForeignKey(City,on_delete=models.CASCADE,related_name="user",blank=True,null=True)
-    Rating = models.IntegerField(default=1)
+    # Rating = models.IntegerField(default=1)
 
     Friends = models.ManyToManyField("User")
 
