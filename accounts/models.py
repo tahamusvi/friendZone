@@ -29,7 +29,7 @@ class City(models.Model):
 # ----------------------------------------------------------------------------------------------------------------------------
 class User(AbstractBaseUser):
     status_reason = (
-        ('u' , "university"),
+        ('u' , "sutech"),
         ('h', "highschool"),
         ('a' , "Friend"),
         ('g' , "game"),
@@ -37,6 +37,12 @@ class User(AbstractBaseUser):
         ('o' , "other"),
         ('f' , "family"),
         ('i' , "instagram"),
+        ('y' , "iust"),
+    )
+
+    status_gender = (
+        ('m',"male"),
+        ('f',"female")
     )
 
     username = models.CharField(unique=True, max_length=100)
@@ -44,6 +50,8 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     Avatar = models.ImageField(upload_to="images/Avatar",blank=True,null=True)
+    gender = models.CharField(max_length=1,choices = status_gender,default='m')
+
 
     code = models.IntegerField(blank=True,null=True)
 
@@ -51,7 +59,7 @@ class User(AbstractBaseUser):
     city = models.ForeignKey(City,on_delete=models.CASCADE,related_name="user",blank=True,null=True)
     # Rating = models.IntegerField(default=1)
 
-    Friends = models.ManyToManyField("User")
+    # Friends = models.ManyToManyField("User")
 
 
 
