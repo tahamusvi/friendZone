@@ -1,8 +1,10 @@
 from django.contrib import admin
 from .models import City, User
 
+
+
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'name', 'gender', 'city')
+    list_display = ('username', 'name', 'gender', 'city','birthdateChange')
     list_filter = ('gender', 'city')
     actions = ['change_gender']
 
@@ -13,6 +15,10 @@ class UserAdmin(admin.ModelAdmin):
 
     def change_gender(self, request, queryset):
         queryset.update(gender='f')
+    
+    def birthdateChange(self,obj):
+        return obj.birthdate_shamsi()
+
 
     change_gender.short_description = "Change gender to female"
 

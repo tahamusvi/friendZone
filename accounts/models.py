@@ -1,6 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, AbstractUser
 from .managers import *
+import jdatetime
+
+farsi = {
+    "Ordibehesht" : "اردیبهشت",
+    "1" : "۱",
+    "2" : "۲",
+    "3" : "۳",
+    "4" : "۴",
+    "5" : "۵",
+    "6" : "۶",
+    "7" : "۷",
+    "8" : "۸",
+    "9" : "۹",
+    "0" : "۰",
+}
+
 # ----------------------------------------------------------------------------------------------------------------------------
 class City(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
@@ -57,6 +73,8 @@ class User(AbstractBaseUser):
 
     reason = models.CharField(max_length=1,choices = status_reason)
     city = models.ForeignKey(City,on_delete=models.CASCADE,related_name="user",blank=True,null=True)
+    
+    birthdate = models.DateField(null=True, blank=True)
     # Rating = models.IntegerField(default=1)
 
     # Friends = models.ManyToManyField("User")
@@ -95,4 +113,23 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+
+    def birthdate_shamsi(self):
+        if self.birthdate:
+            shamsi_date = jdatetime.date.fromgregorian(date=self.birthdate)
+
+            month_name = farsi[shamsi_date.strftime('%B')]
+            day = ""
+            year = ""
+            for i in str(shamsi_date.day):
+                day += farsi[i]
+
+            for i in str(shamsi_date.year):
+                year += farsi[i]
+            
+
+            return year  + " " +  month_name
+        else:
+            return '-'  
 # ----------------------------------------------------------------------------------------------------------------------------
