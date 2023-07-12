@@ -5,8 +5,10 @@ from accounts.models import City
 
 
 def setColor(amount):
-    if(amount<5):
+    if(amount<2):
         return 'gray'
+    elif(amount<5):
+        return 'white'
     elif(amount < 15):
         return 'orange'
     elif(amount < 25):
@@ -29,7 +31,7 @@ def CreateMap(cities):
     # add circles for cities
 
     for city in cities:
-        folium.CircleMarker(location=[city.north,city.east], radius = 6, popup=str(city.user.all().count())+' person - '+city.name, fill_color=setColor(city.user.all().count()), color="black", fill_opacity = 0.9).add_to(map)
+        folium.CircleMarker(location=[city.north,city.east], radius = (city.user.all().count()/20)+7, popup=str(city.user.all().count())+' person - '+city.name, fill_color=setColor(city.user.all().count()), color="black", fill_opacity = 0.9).add_to(map)
 
 
     #save Map
